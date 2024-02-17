@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
-using System.ComponentModel.DataAnnotations;
 using Api.Configs;
+using Api.Models;
+using LoggerFactory = Api.Utils.LoggerFactory;
 
 namespace Api.Controllers
 {
@@ -10,15 +11,6 @@ namespace Api.Controllers
     {
         private readonly AppConfig _config = new();
         private readonly List<Hero> _heroes = [];
-
-        private static readonly ILoggerFactory LoggerFactory = Microsoft.Extensions.Logging.LoggerFactory.Create(builder =>
-            builder.AddSimpleConsole(options =>
-            {
-                options.IncludeScopes = true;
-                options.SingleLine = true;
-                options.TimestampFormat = "HH:mm:ss ";
-            }));
-    
         private readonly ILogger<HeroesController> _logger = LoggerFactory.CreateLogger<HeroesController>();
         
         [HttpGet]
@@ -57,37 +49,5 @@ namespace Api.Controllers
                 _config.Volume
             });
         } 
-    }
-
-    public class Hero
-    {
-        public string? Name { get; init; }
-        public string? Class { get; init; }
-        public int Damage { get; init; }
-        public int Attack { get; init; }
-        public int ArmorClass { get; init; }
-    }
-
-    public class HeroInputModel
-    {
-        [Required(ErrorMessage = "Name is required.")]
-        [StringLength(50, ErrorMessage = "Name cannot exceed 50 characters.")]
-        public string? Name { get; set; }
-
-        [Required(ErrorMessage = "Class is required.")]
-        [StringLength(20, ErrorMessage = "Class cannot exceed 20 characters.")]
-        public string? Class { get; set; }
-
-        [Required(ErrorMessage = "Damage is required.")]
-        [Range(0, int.MaxValue, ErrorMessage = "Damage must be non-negative.")]
-        public int Damage { get; set; }
-
-        [Required(ErrorMessage = "Attack is required.")]
-        [Range(0, int.MaxValue, ErrorMessage = "Attack must be non-negative.")]
-        public int Attack { get; set; }
-
-        [Required(ErrorMessage = "ArmorClass is required.")]
-        [Range(0, int.MaxValue, ErrorMessage = "ArmorClass must be non-negative.")]
-        public int ArmorClass { get; set; }
     }
 }
