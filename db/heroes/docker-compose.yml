@@ -1,0 +1,16 @@
+version: '3.7'
+services:
+  postgres:
+    image: postgres:latest
+    restart: always
+    environment:
+      - POSTGRES_USER=MP77
+      - POSTGRES_PASSWORD=IDecreeAndDeclareWarOnShitePerformance
+      - POSTGRES_DB=heroes_db
+    ports:
+      - '5434:5432'
+    volumes:
+      - ./init-scripts:/docker-entrypoint-initdb.d
+      - ./custom-postgresql.conf:/etc/postgresql/postgresql.conf
+volumes:
+  postgres_data:
