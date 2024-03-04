@@ -1,7 +1,7 @@
-﻿using Api.Models;
-using Api.Repositories;
+﻿using Hvalfangst.api.model;
+using Hvalfangst.api.repository;
 
-namespace Api.Services;
+namespace Hvalfangst.api.service;
 
 public class HeroService(IHeroRepository heroRepository)
 {

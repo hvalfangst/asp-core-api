@@ -1,4 +1,4 @@
--- create_tables.sql
+﻿-- create_tables.sql
 
 CREATE TABLE IF NOT EXISTS heroes(
     Id SERIAL PRIMARY KEY,

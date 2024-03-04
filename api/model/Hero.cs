@@ -1,4 +1,4 @@
-﻿namespace Api.Models;
+﻿namespace Hvalfangst.api.model;
 
 public class Hero
 {

@@ -1,9 +1,10 @@
-﻿using Api.Configs;
+﻿using Hvalfangst.api.configuration;
 
-namespace Api.Utils
+namespace Hvalfangst.api.util.logging
 {
-    public class ApiLoggerFactory() : ILoggerFactory
+    public class ApiLoggerFactory : ILoggerFactory
     {
+        private static readonly LogConfig Config = ConfigHandler.GetLogConfig();
         private readonly ILoggerFactory _loggerFactoryInstance = CreateLoggerFactory();
 
         private static ILoggerFactory CreateLoggerFactory()
@@ -29,7 +30,9 @@ namespace Api.Utils
 
         private static void ConfigureFileLogger(ILoggingBuilder builder)
         {
-            var path = GetPathWithSuffix("logs/api.log");
+            
+            var path = GetPathWithSuffix($"{Config.LogPath}/{Config.LogPrefix}.log");
+            Console.WriteLine(path);
             DirectoryExists(path);
             builder.AddProvider(new FileLoggerProvider(path));
         }

@@ -1,0 +1,4 @@
+﻿{
+  "LogPath": "logs",
+  "LogPrefix": "api"
+}

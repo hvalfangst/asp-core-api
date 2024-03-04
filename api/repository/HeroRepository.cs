@@ -1,8 +1,8 @@
-﻿using Api.Configs;
-using Api.Models;
-using Dapper;
+﻿using Dapper;
+using Hvalfangst.api.configuration;
+using Hvalfangst.api.model;
 
-namespace Api.Repositories;
+namespace Hvalfangst.api.repository;
 
 public class HeroRepository(DataContext context) : IHeroRepository
 {
@@ -17,14 +17,14 @@ public class HeroRepository(DataContext context) : IHeroRepository
         {
             using var connection = context.CreateConnection();
             var sql = "SELECT * FROM heroes WHERE Id = @id";
-            return await connection.QuerySingleOrDefaultAsync<Hero>(sql, new { id });
+            return await connection.QuerySingleOrDefaultAsync<Hero>(sql, new { id }) ?? throw new InvalidOperationException();
         }
 
         public async Task<Hero> GetByName(string name)
         {
             using var connection = context.CreateConnection();
             var sql = "SELECT * FROM heroes WHERE Name = @name";
-            return await connection.QuerySingleOrDefaultAsync<Hero>(sql, new { name });
+            return await connection.QuerySingleOrDefaultAsync<Hero>(sql, new { name }) ?? throw new InvalidOperationException();
         }
 
         public async Task Create(Hero hero)

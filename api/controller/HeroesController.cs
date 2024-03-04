@@ -1,15 +1,14 @@
+using Hvalfangst.api.model;
+using Hvalfangst.api.model.request;
+using Hvalfangst.api.service;
 using Microsoft.AspNetCore.Mvc;
-using Api.Configs;
-using Api.Models;
-using Api.Services;
 
-namespace Api.Controllers
+namespace Hvalfangst.api.controller
 {
     [ApiController]
     [Route("api/[controller]")]
     public class HeroesController(HeroService heroService, ILogger<HeroesController> logger) : ControllerBase
     {
-        private readonly AppConfig _config = new();
         
         [HttpGet]
         public async Task<IActionResult> List()
@@ -57,19 +56,5 @@ namespace Api.Controllers
                 return StatusCode(500, "Internal Server Error");
             }
         }
-        
-        [HttpGet("config")]
-        public IActionResult GetAppConfig()
-        {
-            logger.LogInformation("Called endpoint GET config");
-            
-            return Ok(new
-            {
-                _config.Difficulty,
-                _config.Resolution,
-                _config.Volume,
-                _config.LogPath
-            });
-        } 
     }
 }

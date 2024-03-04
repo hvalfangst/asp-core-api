@@ -4,7 +4,7 @@
 set -e
 
 # Run 'docker-compose up' for creating our DB container
-docker-compose -f db/heroes/docker-compose.yml up -d
+docker-compose -f docker/db/heroes/docker-compose.yml up -d
 
 # Start the application
 dotnet run

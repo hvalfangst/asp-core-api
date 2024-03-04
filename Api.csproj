@@ -4,6 +4,12 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>Hvalfangst</AssemblyName>
+    <RootNamespace>Hvalfangst</RootNamespace>
+    <PackageId>Hvalfangst</PackageId>
+    <Authors>Hvalfangst</Authors>
+    <Company>Hvalfangst</Company>
+    <Product>Hvalfangst</Product>
 </PropertyGroup>
 
 <ItemGroup>
@@ -12,7 +18,12 @@
 </ItemGroup>
 
 <ItemGroup>
-  <Folder Include="Postman\" />
+  <Folder Include="postman\" />
+</ItemGroup>
+
+<ItemGroup>
+  <_ContentIncludedByDefault Remove="Src\Environment\db_config.json" />
+  <_ContentIncludedByDefault Remove="Src\Environment\log_config.json" />
 </ItemGroup>
 
 </Project>

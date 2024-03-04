@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Api.Models;
+namespace Hvalfangst.api.model.request;
 
 public class HeroInputModel
 {

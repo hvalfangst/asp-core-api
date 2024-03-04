@@ -1,4 +1,4 @@
-﻿namespace Api.Utils;
+﻿namespace Hvalfangst.api.util.logging;
 
 public class FileLoggerProvider(string path) : ILoggerProvider
 {
