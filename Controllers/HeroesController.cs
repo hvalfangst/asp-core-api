@@ -2,29 +2,29 @@ using Microsoft.AspNetCore.Mvc;
 using Api.Configs;
 using Api.Models;
 using Api.Services;
-using LoggerFactory = Api.Utils.LoggerFactory;
 
 namespace Api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class HeroesController(HeroService heroService) : ControllerBase
+    public class HeroesController(HeroService heroService, ILogger<HeroesController> logger) : ControllerBase
     {
         private readonly AppConfig _config = new();
-        private readonly ILogger<HeroesController> _logger = LoggerFactory.CreateLogger<HeroesController>();
         
         [HttpGet]
-        public async Task<IActionResult> GetHeroes()
+        public async Task<IActionResult> List()
         {
+            logger.LogInformation("Called endpoint GET heroes");
+            
             try
             {
-                _logger.LogInformation("Called endpoint heroes");
+               
                 var heroes = await heroService.GetAllHeroes();
                 return Ok(heroes);
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Error getting heroes: {ex.Message}");
+                logger.LogError($"Error listing heroes: {ex.Message}");
                 return StatusCode(500, "Internal Server Error");
             }
         }
@@ -32,6 +32,8 @@ namespace Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] HeroInputModel input)
         {
+            logger.LogInformation("Called endpoint POST heroes");
+            
             try
             {
                 var hero = new Hero
@@ -46,12 +48,12 @@ namespace Api.Controllers
                 await heroService.CreateHero(hero);
 
                 var message = $"Added new hero: {hero.Name}, Class: {hero.Class}, Damage: {hero.Damage}, Attack: {hero.Attack}, ArmorClass: {hero.ArmorClass}";
-                _logger.LogInformation(message);
+                logger.LogInformation(message);
                 return Ok(message);
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Error creating hero: {ex.Message}");
+                logger.LogError($"Error creating hero: {ex.Message}");
                 return StatusCode(500, "Internal Server Error");
             }
         }
@@ -59,12 +61,14 @@ namespace Api.Controllers
         [HttpGet("config")]
         public IActionResult GetAppConfig()
         {
-            _logger.LogInformation("Called endpoint config");
+            logger.LogInformation("Called endpoint GET config");
+            
             return Ok(new
             {
                 _config.Difficulty,
                 _config.Resolution,
-                _config.Volume
+                _config.Volume,
+                _config.LogPath
             });
         } 
     }

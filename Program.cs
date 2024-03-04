@@ -1,6 +1,7 @@
 using Api.Configs;
 using Api.Repositories;
 using Api.Services;
+using Api.Utils;
 
 namespace Api;
 
@@ -14,6 +15,8 @@ public static class Program
         builder.Services.AddScoped<IHeroRepository, HeroRepository>();
         builder.Services.AddScoped<DataContext>();
         builder.Services.AddScoped<HeroService>();
+        builder.Services.AddSingleton<ILoggerFactory, ApiLoggerFactory>();
+        
         var app = builder.Build();
         app.MapControllers();
         app.Run();
