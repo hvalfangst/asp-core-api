@@ -4,9 +4,9 @@ WORKDIR /app
 
 COPY . ./
 
-RUN dotnet restore Hvalfangst.csproj
+RUN dotnet restore Api.csproj
 
-RUN dotnet publish Hvalfangst.csproj -c Release -o out
+RUN dotnet publish Api.csproj -c Release -o out
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 as runtime
 
@@ -17,4 +17,4 @@ COPY --from=builder /app/out .
 # Default port exposed in Dotnet 8 containers
 EXPOSE 8080
 
-ENTRYPOINT ["dotnet", "Hvalfangst.dll"]
+ENTRYPOINT ["dotnet", "Api.dll"]
