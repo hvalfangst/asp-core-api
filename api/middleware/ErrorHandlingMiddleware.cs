@@ -67,7 +67,7 @@ public class ErrorHandlingMiddleware(RequestDelegate next, ILogger<ErrorHandling
         if (spellDodgeException == null)
             return (int)HttpStatusCode.InternalServerError;
     
-        if (spellDodgeException.Message.Contains("Dodged spell like a pandaren brewmaster"))
+        if (spellDodgeException.Message.Contains("Dodged spell like a true pandaren brewmaster"))
         {
             return (int)HttpStatusCode.PaymentRequired; 
         }
