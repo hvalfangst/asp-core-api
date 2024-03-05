@@ -1,3 +1,4 @@
+using Hvalfangst.api.exception;
 using Hvalfangst.api.model;
 using Hvalfangst.api.model.request;
 using Hvalfangst.api.service;
@@ -13,21 +14,11 @@ namespace Hvalfangst.api.controller
         [HttpGet]
         public async Task<IActionResult> List()
         {
-            logger.LogInformation("Called endpoint GET heroes");
-            
-            try
-            {
-               
+                logger.LogInformation("Called endpoint GET heroes");
                 var heroes = await heroService.GetAllHeroes();
                 return Ok(heroes);
-            }
-            catch (Exception ex)
-            {
-                logger.LogError($"Error listing heroes: {ex.Message}");
-                return StatusCode(500, "Internal Server Error");
-            }
         }
-
+        
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] HeroInputModel input)
         {
@@ -56,5 +47,20 @@ namespace Hvalfangst.api.controller
                 return StatusCode(500, "Internal Server Error");
             }
         }
+        
+        [HttpGet]
+        [Route("fireball")]
+        public Task<IActionResult> TestFireBallException()
+        {
+            throw new FireballException("Big ball of fire");
+        }
+        
+        [HttpGet]
+        [Route("spell-dodge")]
+        public Task<IActionResult> TestSpellDodgeException()
+        {
+            throw new SpellDodgeException("Dodged spell like a true pandaren brewmaster");
+        }
+        
     }
 }

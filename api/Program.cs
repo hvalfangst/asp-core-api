@@ -1,4 +1,5 @@
 using Hvalfangst.api.configuration;
+using Hvalfangst.api.middleware;
 using Hvalfangst.api.repository;
 using Hvalfangst.api.service;
 using Hvalfangst.api.util.logging;
@@ -18,6 +19,7 @@ public static class Program
         
         var app = builder.Build();
         app.MapControllers();
+        app.UseMiddleware<ErrorHandlingMiddleware>();
         app.Run();
     }
 }
