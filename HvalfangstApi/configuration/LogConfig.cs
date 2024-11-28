@@ -1,4 +1,4 @@
-﻿namespace Hvalfangst.api.configuration
+﻿namespace HvalfangstApi.configuration
 {
     public class LogConfig(string logPath, string logPrefix)
     {

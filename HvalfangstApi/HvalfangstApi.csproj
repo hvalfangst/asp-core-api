@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+<PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>HvalfangstApi</AssemblyName>
+    <RootNamespace>HvalfangstApi</RootNamespace>
+    <PackageId>HvalfangstApi</PackageId>
+    <Authors>HvalfangstApi</Authors>
+    <Company>HvalfangstApi</Company>
+    <Product>HvalfangstApi</Product>
+</PropertyGroup>
+
+<ItemGroup>
+  <PackageReference Include="Dapper" Version="2.1.28" />
+  <PackageReference Include="Npgsql" Version="8.0.2" />
+</ItemGroup>
+
+<ItemGroup>
+  <Folder Include="exception\" />
+</ItemGroup>
+
+</Project>

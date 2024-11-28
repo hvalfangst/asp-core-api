@@ -1,6 +1,6 @@
-﻿using Hvalfangst.api.model;
+﻿using HvalfangstApi.model;
 
-namespace Hvalfangst.api.repository;
+namespace HvalfangstApi.repository;
 
 public interface IHeroRepository
 {

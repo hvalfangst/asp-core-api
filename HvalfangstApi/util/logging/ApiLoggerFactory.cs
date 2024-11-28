@@ -1,6 +1,6 @@
-﻿using Hvalfangst.api.configuration;
+﻿using HvalfangstApi.configuration;
 
-namespace Hvalfangst.api.util.logging
+namespace HvalfangstApi.util.logging
 {
     public class ApiLoggerFactory : ILoggerFactory
     {

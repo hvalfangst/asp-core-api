@@ -1,0 +1,7 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=4f2d955b_002Db7bf_002D4b5c_002D8482_002Dd3ad6db862cf/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Post_ShouldFailValidation_AndReturnBadRequest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::39F2C9A0-C1BA-4BF7-89FF-16B5015CE8C8::net8.0::HvalfangstTests.HeroesControllerTests.Post_ShouldFailValidation_AndReturnBadRequest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::39F2C9A0-C1BA-4BF7-89FF-16B5015CE8C8::net8.0::HvalfangstTests.HeroesControllerTests.Post_ShouldCreateHero_AndReturnOk&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

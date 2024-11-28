@@ -1,4 +1,4 @@
-﻿namespace Hvalfangst.api.configuration;
+﻿namespace HvalfangstApi.configuration;
 
 public class DatabaseConfig(string server, int port, string schema, string userId, string password)
 {

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Hvalfangst.api.model.request;
+namespace HvalfangstApi.model.request;
 
 public class HeroInputModel
 {
@@ -31,4 +31,15 @@ public class HeroInputModel
     [Required(ErrorMessage = "ArmorClass is required.")]
     [Range(0, int.MaxValue, ErrorMessage = "ArmorClass must be non-negative.")]
     public int ArmorClass { get; set; }
+    
+    public void Validate()
+    {
+        var validationContext = new ValidationContext(this);
+        var validationResults = new List<ValidationResult>();
+
+        if (!Validator.TryValidateObject(this, validationContext, validationResults, true))
+        {
+            throw new ValidationException(string.Join("; ", validationResults));
+        }
+    }
 }

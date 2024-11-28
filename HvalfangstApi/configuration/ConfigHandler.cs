@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 
-namespace Hvalfangst.api.configuration;
+namespace HvalfangstApi.configuration;
 
 public static class ConfigHandler
 {

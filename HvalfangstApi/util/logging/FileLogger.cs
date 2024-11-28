@@ -1,4 +1,4 @@
-﻿namespace Hvalfangst.api.util.logging;
+﻿namespace HvalfangstApi.util.logging;
 
 public class FileLogger(string logPath) : ILogger
 {

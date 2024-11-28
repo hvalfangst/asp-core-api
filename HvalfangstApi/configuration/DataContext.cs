@@ -1,7 +1,7 @@
 ﻿using System.Data;
 using Npgsql;
 
-namespace Hvalfangst.api.configuration;
+namespace HvalfangstApi.configuration;
 
 public class DataContext
 {

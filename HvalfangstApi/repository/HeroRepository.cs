@@ -1,8 +1,8 @@
 ﻿using Dapper;
-using Hvalfangst.api.configuration;
-using Hvalfangst.api.model;
+using HvalfangstApi.configuration;
+using HvalfangstApi.model;
 
-namespace Hvalfangst.api.repository;
+namespace HvalfangstApi.repository;
 
 public class HeroRepository(DataContext context) : IHeroRepository
 {

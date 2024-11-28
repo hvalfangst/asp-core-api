@@ -1,10 +1,10 @@
-using Hvalfangst.api.configuration;
-using Hvalfangst.api.middleware;
-using Hvalfangst.api.repository;
-using Hvalfangst.api.service;
-using Hvalfangst.api.util.logging;
+using HvalfangstApi.configuration;
+using HvalfangstApi.middleware;
+using HvalfangstApi.repository;
+using HvalfangstApi.service;
+using HvalfangstApi.util.logging;
 
-namespace Hvalfangst.api;
+namespace HvalfangstApi;
 
 public static class Program
 {
