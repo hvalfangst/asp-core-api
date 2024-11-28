@@ -8,6 +8,7 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -16,13 +17,37 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+      
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 8.0.x
+    
     - name: Restore dependencies
       run: dotnet restore HvalfangstApi/HvalfangstApi.csproj
+      
     - name: Build
       run: dotnet build HvalfangstApi/HvalfangstApi.csproj --no-restore
-    - name: Test
-      run: dotnet test HvalfangstTests/HvalfangstTests.csproj --verbosity normal
+      
+    - name: Run Tests with Coverage
+      run: |
+        dotnet test HvalfangstTests/HvalfangstTests.csproj \
+        --collect:"XPlat Code Coverage" \
+        --results-directory ./TestResults \
+        --logger "trx;LogFileName=test_results.trx"
+
+    - name: List TestResults Directory
+      run: ls -R ./TestResults
+
+    - name: Install ReportGenerator
+      run: dotnet tool install -g dotnet-reportgenerator-globaltool
+
+    - name: Generate Coverage Report
+      run: |
+        reportgenerator \
+        -reports:./TestResults/**/coverage.cobertura.xml \
+        -targetdir:./CoverageReport \
+        -reporttypes:TextSummary
+
+    - name: Display Coverage Report
+      run: cat ./CoverageReport/Summary.txt
