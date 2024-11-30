@@ -7,4 +7,4 @@ set -e
 docker-compose -f infra/db/heroes/docker-compose.yml up -d
 
 # Start the application
-dotnet run
+dotnet run --project HvalfangstApi/HvalfangstApi.csproj
