@@ -7,26 +7,6 @@
 	},
 	"item": [
 		{
-			"name": "List heroes",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:5000/api/heroes",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"heroes"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "Create hero",
 			"request": {
 				"method": "POST",
@@ -56,12 +36,61 @@
 			"response": []
 		},
 		{
-			"name": "Get config values",
+			"name": "Update hero",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Olav den Hellige\",\r\n  \"class\": \"Paladin\",\r\n  \"damage\": 10,\r\n  \"attack\": 5,\r\n  \"armorclass\": 12,\r\n  \"level\": 1,\r\n  \"hit_points\": 50\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/heroes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"heroes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List heroes",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5000/api/heroes/config",
+					"raw": "http://localhost:5000/api/heroes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"heroes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get hero by name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/heroes/name/Olav den Hellige",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -70,7 +99,95 @@
 					"path": [
 						"api",
 						"heroes",
-						"config"
+						"name",
+						"Olav den Hellige"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get hero by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/heroes/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"heroes",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Compact get hero by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/heroes/compact/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"heroes",
+						"compact",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Compact get hero by name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/heroes/compact/name/Olav den Hellige",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"heroes",
+						"compact",
+						"name",
+						"Olav den Hellige"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete hero by ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/heroes/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"heroes",
+						"1"
 					]
 				}
 			},
