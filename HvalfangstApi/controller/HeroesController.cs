@@ -12,7 +12,7 @@ public class HeroesController(HeroService heroService, ILogger<HeroesController>
 {
     
     [HttpPost]
-    public async Task<IActionResult> Post([FromBody] HeroInputModel input)
+    public async Task<IActionResult> Create([FromBody] HeroInputModel input)
     {
         logger.LogInformation("Called endpoint POST heroes");
 

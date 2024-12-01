@@ -1,9 +1,9 @@
-# ASP.NET Core API with Dapper
+# ASP.NET Core 9 API with Dapper
 
 ## Requirements
 
 - **Platform**: x86-64, Linux/WSL
-- **Programming Language**: [Dotnet 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
+- **Programming Language**: [Dotnet 9](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
 
 
 ## Allocate resources & run API

@@ -45,6 +45,8 @@ public static partial class HeroContentUtils
 
     }
 
-    [GeneratedRegex(@"^(?<Name>[^_]+)_(?<Level>\d+)_(?<Class>[^_]+)_(?<HitPoints>\d+)_(?<ArmorClass>\d+)_(?<Attack>\d+)_(?<Damage>\d+)$")]
-    private static partial Regex HeroContentsRegEx();
+      private static Regex HeroContentsRegEx()
+    {
+        return new Regex(@"^(?<Name>[^_]+)_(?<Level>\d+)_(?<Class>[^_]+)_(?<HitPoints>\d+)_(?<ArmorClass>\d+)_(?<Attack>\d+)_(?<Damage>\d+)$");
+    }
 }
